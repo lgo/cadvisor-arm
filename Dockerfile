@@ -15,6 +15,6 @@ RUN make build
 
 # Image for usage
 FROM arm32v7/debian-slim
-COPY --from=build /go/src/github.com/google/cadvisor/cadvisor /usr/bin/cadvisor
+COPY --from=builder /go/src/github.com/google/cadvisor/cadvisor /usr/bin/cadvisor
 EXPOSE 8080
 ENTRYPOINT ["/usr/bin/cadvisor", "-logtostderr"]
