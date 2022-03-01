@@ -42,5 +42,5 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: ${{ secrets.DOCKERHUB_TOKEN }}/${{ secrets.DOCKERHUB_REPO }}:latest
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPO }}:latest
         platforms: linux/arm/v7
