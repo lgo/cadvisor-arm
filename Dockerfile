@@ -1,7 +1,7 @@
 # Builder
 FROM arm32v7/golang as builder
 
-ENV CADVISOR_VERSION "release-v0.39"
+ENV CADVISOR_VERSION "release-v0.44"
 
 RUN apt-get update && apt-get install -y git dmsetup && apt-get clean
 
