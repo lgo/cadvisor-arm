@@ -23,14 +23,18 @@ This package compile official [google/cadvisor](https://github.com/google/cadvis
 
 **NOTE:** Tag corresponds to the version of cAdvisor
 
-* `0.44.1`, `latest` - [(Dockerfile)](https://github.com/GuyKh/cadvisor-arm/blob/v0.44.1/Dockerfile)
+* `0.44.3`, `latest` - [(Dockerfile)](https://github.com/lgo/cadvisor-arm/blob/v0.44.3/Dockerfile)
+
+The best (and recommended) way how to use this package is as [Docker image](https://hub.docker.com/r/legojoey17/cadvisor-arm/).
+
+For older versions (0.28 - 0.44), see the fork parent [GuyKh/cadvisor-arm](https://github.com/GuyKh/cadvisor-arm) and their corresponding [Docker images](https://hub.docker.com/r/guykhmel/cadvisor-arm/). It contans the following tags:
+
+* `0.44.1` - [(Dockerfile)](https://github.com/GuyKh/cadvisor-arm/blob/v0.44.1/Dockerfile)
 * `0.44.0` - [(Dockerfile)](https://github.com/GuyKh/cadvisor-arm/blob/v0.44.0/Dockerfile)
 * `0.30.2` - [(Dockerfile)](https://github.com/GuyKh/cadvisor-arm/blob/v0.30.2/Dockerfile)
 * `0.29.0` - [(Dockerfile)](https://github.com/GuyKh/cadvisor-arm/blob/v0.29.0/Dockerfile)
 * `0.28.3` - [(Dockerfile)](https://github.com/GuyKh/cadvisor-arm/blob/v0.28.3/Dockerfile)
 
-
-The best (and recommended) way how to use this package is as [Docker image](https://hub.docker.com/r/guykhmel/cadvisor-arm/).
 
 ```shell
 docker run \
@@ -42,7 +46,7 @@ docker run \
   --publish=8080:8080 \
   --detach=true \
   --name=cadvisor \
-  guykhmel/cadvisor-arm:latest
+  legojoey17/cadvisor-arm:latest
 ```
 
 I trying update build of this package as soon as possible for each [google/cadvisor](https://github.com/google/cadvisor) update, but when you need more actual version I recommend you use custom build.
@@ -54,7 +58,7 @@ version: '3'
 
 services:
   cadvisor:
-    image: guykhmel/cadvisor-arm
+    image: legojoey17/cadvisor-arm
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:rw
@@ -70,7 +74,7 @@ services:
 Or you can use custom build on your ARM (Raspberry PI) device.
 
 ```shell
-git clone git@github.com:GuyKh/cadvisor-arm.git
+git clone git@github.com:legojoey17/cadvisor-arm.git
 cd cadvisor-arm
 docker build -t <image name> .
 docker run \
